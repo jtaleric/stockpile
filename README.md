@@ -8,56 +8,70 @@ Tool to gather information from systems using Ansible.
 
     Now, clone the github repository
 
-    ::
+```bash
 
         $ git clone https://github.com/redhat-performance/stockpile.git
+
+```
 
     Make sure, you've git-review installed, following should work.
 
 
-    ::
+```bash
 
         $ sudo pip install git-review
 
+```
 
     To set up your cloned repository to work with Gerrit
 
-    ::
+
+```bash
 
         $ git review -s
+
+```
 
     It's suggested to create a branch to do your work,
     name it something related to the change you'd like to introduce.
 
-    ::
+```bash
 
         $ git branch my_special_enhancement
         $ git checkout !$
 
+```
+
     Make your changes and then commit them using the instructions
     below.
 
-    ::
+
+```bash
 
         $ git add /path/to/files/changed
         $ git commit -m "your commit title"
+
+```
 
     Use a descriptive commit title followed by an empty space.
     You should type a small justification of what you are
     changing and why.
 
-Local testing
-`````````````
+## Local testing
 
     Before submitting code to Gerrit you *should* do at least some minimal local
     testing, like running ``tox -e linters``. This could be automated if you
-    activate `pre-commit <https://pre-commit.com/>`__ hooks::
+    activate `pre-commit <https://pre-commit.com/>`__ hooks
+
+```
 
     pip install --user pre-commit
     # to enable automatic run on commit:
     pre-commit install --install-hooks
     # to uninstall hooks
     pre-commit uninstall
+
+```
 
     Please note that the pre-commit feature is available only on repositories that
     do have `.pre-commit-config.yaml <https://github.com/redhat-performance/stockpile/blob/master/.pre-commit-config.yaml>`__ file.
@@ -81,28 +95,34 @@ Local testing
 
     Now you're ready to submit your changes for review:
 
-    ::
+```bash
 
         $ git review
 
+```
 
     If you want to make another patchset from the same commit you can
     use the amend feature after further modification and saving.
 
-    ::
+
+```bash
 
         $ git add /path/to/files/changed
         $ git commit --amend
         $ git review
+
+```
 
     If you want to submit a new patchset from a different location
     (perhaps on a different machine or computer for example) you can
     clone the repo again (if it doesn't already exist) and then
     use git review against your unique Change-ID:
 
-    ::
+```bash
 
         $ git review -d Change-Id
+
+```
 
     Change-Id is the change id number as seen in Gerrit and will be
     generated after your first successful submission. So, in case of
@@ -119,18 +139,25 @@ Local testing
 
     Add the files to git and commit your changes using,
 
-    ::
+
+```bash
 
         $ git commit --amend
+
+```
 
     You can edit your commit message as well in the prompt shown upon
     executing above command.
 
     Finally, push the patch for review using,
 
-    ::
+
+```bash
 
         $ git review
+
+```
+
 
 
 # How to add to the Stockpile?
